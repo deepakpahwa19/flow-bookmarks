@@ -10,12 +10,20 @@ Create **bookmarks** for a particular **flow**, _each flow with different color_
 ![Demo](https://github.com/deepakpahwa19/flow-bookmarks/blob/master/images/bookmark-vscode.png?raw=true)
 
 ## Supports all languages suppported by VSCode
-  *JavaScript*     *Java*    *Python*
-  *C/C++*          *CSS*     *HTML*    etc.
+  1. **JavaScript**
+  2. **Java**
+  3. **Python**
+  4. **C/C++**
+  5. **CSS**
+  6. **HTML** etc.
 
 ## Supports all frameworks suppported by VSCode
-  *React*          *Angular*   *Vue*
-  *Spring Boot*    *Django*    *Flask* etc.
+  1. **React**
+  2. **Angular**
+  3. **Vue**
+  4. **Spring Boot**
+  5. **Django**
+  6. **Flask** etc.
 
 ## Please suggest new feature or create issues here: https://github.com/deepakpahwa19/flow-bookmarks/issues
 
