@@ -1,0 +1,179 @@
+{
+  "name": "flowbookmark",
+  "displayName": "MultiColor Bookmarks FlowWise (FB)",
+  "description": "Mark bookmarks flowwise with different colors",
+  "publisher": "DeepakPahawa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepakpahwa19/flow-bookmark.git/"
+  },
+  "version": "1.0.9",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "author": {
+    "name": "Deepak Pahawa"
+  },
+  "keywords": [
+    "bookmark",
+    "multi color bookmark",
+    "save",
+    "breakpoint",
+    "selection"
+  ],
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "*",
+    "onView:flowBookmarksView",
+    "onCommand:flowbookmark.addNew",
+    "onCommand:flowbookmark.clear",
+    "onCommand:flowbookmark.clearAll",
+    "onCommand:flowBookmarksView.editEntry",
+    "onCommand:flowBookmarksView.deleteBookmark"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "images/multicolor-icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "flowbookmark.addNew",
+        "title": "FB: Add Bookmark"
+      },
+      {
+        "command": "flowbookmark.clear",
+        "title": "FB: Clear This Bookmark"
+      },
+      {
+        "command": "flowbookmark.clearAll",
+        "title": "FB: Clear All Bookmarks"
+      },
+      {
+        "command": "flowBookmarksView.editEntry",
+        "title": "Edit",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "flowBookmarksView.deleteBookmark",
+        "title": "Delete",
+        "icon": "$(close)"
+      },
+      {
+        "command": "flowBookmarksView.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "fb-explorer",
+          "title": "Flow Bookmarks Explorer",
+          "icon": "images/icons-activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "fb-explorer": [
+        {
+          "id": "flowBookmarksView",
+          "name": "Flow-wise Bookmarks",
+          "icon": "images/fb-bookmark.svg",
+          "contextualTitle": "Bookmark Explorer"
+        },
+        {
+          "id": "fileBookmarksView",
+          "name": "File-wise Bookmarks"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "flowBookmarksView",
+        "contents": "Please open a folder or workspace first to add bookmark and flow.\n[Open a Folder](command:workbench.action.files.openFileFolder)\n[Open a Workspace](command:workbench.action.openWorkspace)\nTo learn more about how to use Flow Bookmark (FB) in VS Code [read the docs](https://github.com/deepakpahwa19/flow-bookmarks/blob/master/README.md).",
+        "when": "workbenchState == empty"
+      },
+      {
+        "view": "flowBookmarksView",
+        "contents": "Please open a folder or workspace first to add bookmark and flow.\n[Open a File](command:workbench.action.quickOpen)\nTo learn more about how to use Flow Bookmark (FB) in VS Code [read the docs](https://github.com/deepakpahwa19/flow-bookmarks/blob/master/README.md).",
+        "when": "workbenchState != empty && !editorIsOpen"
+      },
+      {
+        "view": "flowBookmarksView",
+        "contents": "Create a bookmark and flow.\nIn order to add bookmark and flow, click on the line you wish to bookmark and run the command:\n[FB: Add Bookmark](command:flowbookmark.addNew)\nTo learn more about how to use Flow Bookmark (FB) in VS Code [read the docs](https://github.com/deepakpahwa19/flow-bookmarks/blob/master/README.md).",
+        "when": "workbenchState != empty && editorIsOpen"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "flowBookmarksView.refreshEntry",
+          "when": "view == flowBookmarksView",
+          "group": "navigation@1"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "flowBookmarksView.deleteBookmark",
+          "when": "view == flowBookmarksView && viewItem == dependency",
+          "group": "inline@2"
+        },
+        {
+          "command": "flowBookmarksView.editEntry",
+          "when": "view == flowBookmarksView && viewItem == dependency",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "flowbookmark",
+      "properties": {
+        "flowbookmark.listOfColors": {
+          "type": "array",
+          "default": []
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "flowbookmark.addNew",
+        "key": "ctrl+alt+k",
+        "mac": "cmd+alt+k",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js",
+    "vscode:prepublish": "webpack --mode production",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "test-compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "@types/vscode": "^1.46.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.2",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {}
+}
