@@ -2,12 +2,30 @@
 
 # FlowBookmarks - Multicolor bookmark
 
+### Please reload after installing it. Press cmd+shift+P or ctrl+shift+P and enter reload and select the option to Reload
+
 It helps you to navigate through your code for a particular flow like Activation, Order Placement, Cancellation or whatever flow you work on.
 Create **bookmarks** for a particular **flow**, _each flow with different color_, navigate to any bookmark anytime easily.
 
 ![Demo](https://github.com/deepakpahwa19/flow-bookmarks/blob/master/images/bookmark-vscode.png?raw=true)
 
-<!-- ![Display](/images/bookmark-vscode.png) -->
+## Supports all languages suppported by VSCode
+  1. **JavaScript**
+  2. **Java**
+  3. **Python**
+  4. **C/C++**
+  5. **CSS**
+  6. **HTML** etc.
+
+## Supports all frameworks suppported by VSCode
+  1. **React**
+  2. **Angular**
+  3. **Vue**
+  4. **Spring Boot**
+  5. **Django**
+  6. **Flask** etc.
+
+## Please suggest new feature or create issues here: https://github.com/deepakpahwa19/flow-bookmarks/issues
 
 List of Features:
 
@@ -16,7 +34,8 @@ List of Features:
 - Add a **bookmark** for a **flow**, mention **index** for bookmark.
 - Edit a bookmark like change the flow name or index or even bookmark name.
 - All bookmarks are sorted as per their index, makes it easy to navigate through the flow anytime.
-- Remove a bookmark
+- Clear a bookmark
+- Clear All bookmarks at once
 - Multi-color support. upto 10 colors to choose from.
 - All bookmarks for a flow will use single color, makes it easy to identify in the file.
 - A sidebar to navigate through the bookmarks and files.
@@ -33,6 +52,8 @@ Default Colors: ['blue', 'red', 'pink', 'purple', 'yellow']
 
 Available colors:
 ['blue', 'green', 'pink', 'red', 'aqua', 'orange', 'purple', 'yellow', 'persiangreen', 'brown']
+
+Please reload after making changes in setting.json
 
 ## Commands
 
